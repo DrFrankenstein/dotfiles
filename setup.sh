@@ -9,7 +9,7 @@ ensure_installed()
 {
   if ! muffled command -v $1
   then
-    echo "We need '%1'. Attempting to install..."
+    echo "We need $1. Attempting to install..."
   
     if [ $EUID -ne 0 ]
     then
@@ -19,7 +19,7 @@ ensure_installed()
   
     if ! muffled command -v apt
     then
-      echo "Cannot install fish: Only 'apt'-based distributions are currently supported."
+      echo "Cannot install $1: Only 'apt'-based distributions are currently supported."
       exit 1
     fi
   
@@ -62,7 +62,7 @@ then
 fi
 
 echo -n "Updating dotfiles... "
-git pull || exit 1
+git pull || exit
 
 echo "Applying setup..."
 fish setup.fish $@
