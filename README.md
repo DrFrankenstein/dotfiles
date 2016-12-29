@@ -1,8 +1,6 @@
 # DrFrankenstein's dotfiles
 Or, what happens when a Windows guy tries to customise a Linux system.
 
-[TOC]
-
 ## History
 I've been an occasional Linux user since around 2004, using it as my secondary OS during most of that time, and even as my primary OS for about a year. I progressively learned my way around the shell, utility, config files, directory structure, etc. throughout that time, but I never really strayed away from the defaults, except for a thing or two, and I used GUIs whenever I could get away with it. So I'm a functional Linux (and *nix) user, but I'm no expert.
 
