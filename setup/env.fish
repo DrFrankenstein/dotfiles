@@ -11,7 +11,8 @@ set -Ux SHELL fish
 set -Ux LANG fr_CA.UTF-8
 
 #Compile flags
-set -Ux CC gcc
+#set -Ux CC gcc
+#set -Ux CXX g++
 set -Ux CFLAGS "-march=native -mtune=native -Wall -Wextra -pedantic"
 set -Ux CXXFLAGS $CFLAGS
 

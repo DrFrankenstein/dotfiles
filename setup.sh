@@ -5,6 +5,11 @@ muffled()
   $@ >/dev/null 2>&1
 }
 
+have_fish_ppa()
+{
+  muffled command -v lsb_release && [ `lsb_release -is` = "Ubuntu" ] && [ -e /etc/apt/sources.list.d/fish-shell-release-2*.list ]
+}
+
 ensure_installed()
 {
   if ! muffled command -v $1
@@ -22,7 +27,7 @@ ensure_installed()
       echo "Cannot install $1: Only 'apt'-based distributions are currently supported."
       exit 1
     fi
-  
+ 
     apt install $2
   fi
 }
@@ -34,6 +39,13 @@ do
     \?) exit 1 ;;
   esac
 done
+
+# we need the latest 'fish' version if we can grab it easily enough
+if [ ! $contained ] && ! have_fish_ppa
+then
+  apt-add-repository -y ppa:fish-shell/release-2
+  apt update
+fi
 
 # grab our basic dependencies...
 ensure_installed fish fish
