@@ -32,16 +32,16 @@ ensure_installed()
   fi
 }
 
-while getopts "c" arg
+while getopts "s" arg
 do
   case $arg in
-    c) contained=1 ;;
+    s) simulate=1 ;;
     \?) exit 1 ;;
   esac
 done
 
 # we need the latest 'fish' version if we can grab it easily enough
-if [ ! $contained ] && ! have_fish_ppa
+if [ ! $simulate ] && ! have_fish_ppa
 then
   apt-add-repository -y ppa:fish-shell/release-2
   apt update
